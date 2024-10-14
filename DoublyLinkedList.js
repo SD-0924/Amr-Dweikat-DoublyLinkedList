@@ -108,11 +108,37 @@ class DoublyLinkedList {
   }
   // The insert method takes an index number and a value as parameters, and inserts the value at the given index in the list. It returns true on successful insert or false
   insert(index, val) {
-    if (this.length === 0 && index !== 0) {
-      console.log("sorry your index out of number of nodes in linked list");
-    } else if (this.length !== 0 && (index < 0 || index > this.length - 1)) {
-      console.log("sorry your index out of number of nodes in linked list");
+    if (this.length === 0) {
+      if (index === 0) {
+        this.unshift(val);
+        return true;
+      }
+      console.log("sorry your index should be 0 because linked list is empty");
+      return false;
+    } else if (index < 0 || index > this.length) {
+      console.log("sorry your index should be between 0 and " + this.length);
+      return false;
     }
+    if (index === 0) {
+      this.unshift(val);
+    } else if (index === this.length) {
+      this.push(val);
+    } else {
+      const node = new Node(val);
+      const p1 = this.head;
+      const p2 = this.head.next;
+      let counter = 0;
+      while (counter != index - 1) {
+        p1 = p2;
+        p2 = p2.next;
+        counter++;
+      }
+      node.next = p2;
+      node.previous = p1;
+      p1.next = node;
+      p2.previous = node;
+    }
+    return true;
   }
 }
 export default DoublyLinkedList;
