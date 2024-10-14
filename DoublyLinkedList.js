@@ -140,5 +140,34 @@ class DoublyLinkedList {
     }
     return true;
   }
+  // The remove method takes an index number as a parameter and removes the node at the given index in the list
+  remove(index) {
+    if (this.length === 0) {
+      console.log(
+        `sorry you connot remove node at ${index} index because list is an empty`
+      );
+    } else if (index < 0 || index > this.length - 1) {
+      console.log("sorry your index out of number of nodes in linked list");
+    } else {
+      if (index === 0) {
+        this.shift();
+      } else if (index === this.length - 1) {
+        this.pop();
+      } else {
+        const p1 = this.head;
+        const p2 = this.head.next;
+        let counter = 0;
+        while (counter != index - 1) {
+          p1 = p2;
+          p2 = p2.next;
+          counter++;
+        }
+        p1.next = p2.next;
+        p2.next.previous = p1;
+        p2.next = null;
+        p2.previous = null;
+      }
+    }
+  }
 }
 export default DoublyLinkedList;
