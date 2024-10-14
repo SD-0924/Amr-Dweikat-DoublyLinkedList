@@ -5,4 +5,5 @@ class Node {
     this.previous = null;
   }
 }
+// Export the Node class
 export default Node;

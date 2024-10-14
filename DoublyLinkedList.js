@@ -1,4 +1,6 @@
+// Import the Node class
 import Node from "./Node.js";
+
 class DoublyLinkedList {
   constructor() {
     this.head = null;
@@ -32,9 +34,7 @@ class DoublyLinkedList {
       pointer.previous = null;
       this.tail.next = null;
     } else {
-      console.log(
-        "Sorry , you cannot do pop() because the linked list is empty"
-      );
+      console.log("Sorry, you can't do pop() because the linked list is empty");
     }
   }
   // The shift method removes the head of the list
@@ -52,7 +52,7 @@ class DoublyLinkedList {
       this.head.previous = null;
     } else {
       console.log(
-        "Sorry , you cannot do shift() because the linked list is empty"
+        "Sorry, you can't do shift() because the linked list is empty"
       );
     }
   }
@@ -72,11 +72,13 @@ class DoublyLinkedList {
   // The get method takes an index number as a parameter and returns the value of the node at that index
   get(index) {
     if (this.length === 0) {
-      console.log(
-        "sorry we can not give you the node value at index that you request because linked list is empty"
-      );
+      console.log("Sorry, you can't do get() because the linked list is empty");
     } else if (index < 0 || index > this.length - 1) {
-      console.log("sorry your index out of number of nodes in linked list");
+      console.log(
+        `Sorry, you can't do get() because the index of the node that you requested should be in the range [0-${
+          this.length - 1
+        }]`
+      );
     } else {
       const pointer = this.head;
       let counter = 0;
@@ -86,16 +88,17 @@ class DoublyLinkedList {
       }
       return pointer.data;
     }
-    return -1;
   }
   // The set method takes an index number and a value as parameters, and modifies the node value at the given index in the list
   set(index, val) {
     if (this.length === 0) {
-      console.log(
-        "sorry we can not assign value for node that is realted to index because linked list is empty"
-      );
+      console.log("Sorry, you can't do set() because the linked list is empty");
     } else if (index < 0 || index > this.length - 1) {
-      console.log("sorry your index out of number of nodes in linked list");
+      console.log(
+        `Sorry, you can't do set() because the index of the node that you requested should be in the range [0-${
+          this.length - 1
+        }]`
+      );
     } else {
       const pointer = this.head;
       let counter = 0;
@@ -113,10 +116,14 @@ class DoublyLinkedList {
         this.unshift(val);
         return true;
       }
-      console.log("sorry your index should be 0 because linked list is empty");
+      console.log(
+        "Sorry, you can't do insert() with an index that isn't equal to 0 because the linked list is empty"
+      );
       return false;
     } else if (index < 0 || index > this.length) {
-      console.log("sorry your index should be between 0 and " + this.length);
+      console.log(
+        `Sorry, you can't do insert() because the index of the node that you requested should be in the range [0-${this.length}]`
+      );
       return false;
     }
     if (index === 0) {
@@ -144,10 +151,14 @@ class DoublyLinkedList {
   remove(index) {
     if (this.length === 0) {
       console.log(
-        `sorry you connot remove node at ${index} index because list is an empty`
+        "Sorry, you can't do remove() because the linked list is empty"
       );
     } else if (index < 0 || index > this.length - 1) {
-      console.log("sorry your index out of number of nodes in linked list");
+      console.log(
+        `Sorry, you can't do remove() because the index of the node that you requested should be in the range [0-${
+          this.length - 1
+        }]`
+      );
     } else {
       if (index === 0) {
         this.shift();
@@ -169,5 +180,20 @@ class DoublyLinkedList {
       }
     }
   }
+  // The print method to display linked list
+  print() {
+    let list = "";
+    const pointer = this.head;
+    while (pointer) {
+      if (pointer.next) {
+        list += pointer.data + "<->";
+      } else {
+        list += pointer.data;
+      }
+      pointer = pointer.next;
+    }
+    console.log(list);
+  }
 }
+// Export the DoublyLinkedList class
 export default DoublyLinkedList;
