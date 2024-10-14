@@ -131,6 +131,7 @@ class DoublyLinkedList {
     } else if (index === this.length) {
       this.push(val);
     } else {
+      this.length++;
       const node = new Node(val);
       let p1 = this.head;
       let p2 = this.head.next;
@@ -165,6 +166,7 @@ class DoublyLinkedList {
       } else if (index === this.length - 1) {
         this.pop();
       } else {
+        this.length--;
         let p1 = this.head;
         let p2 = this.head.next;
         let counter = 0;
