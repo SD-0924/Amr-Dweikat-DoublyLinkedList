@@ -2,7 +2,7 @@
 import DoublyLinkedList from "./DoublyLinkedList.js";
 
 // Create an instance of the doubly linked list
-const list = new DoublyLinkedList(); // List:
+const list = new DoublyLinkedList();
 console.log(`\n\nList after creating it:  ${list.print()}\n\n`);
 
 // Test the push method
@@ -41,9 +41,21 @@ console.log(`Testing insert...`);
 list.insert(1, 15); // List: 10 <-> 15 <-> 25
 console.log(`List after inserting 15 at index 1:  ${list.print()}\n\n`);
 
-// Test the remove method
-console.log(`Testing remove...`);
+// Test remove method with edge cases
+
+console.log(`Testing remove at index 1...`);
 list.remove(1); // List: 10 <-> 25
 console.log(`List after removing element at index 1:  ${list.print()}\n\n`);
 
-// remove there is a bug in it
+console.log(`Testing remove at index 0 (removes the head)...`);
+list.remove(0); // List: 25 (removing the head)
+console.log(`List after removing element at index 0:  ${list.print()}\n\n`);
+
+console.log(`Testing remove on a single-node list...`);
+list.remove(0); // List should become empty
+console.log(`List after removing the last element:  ${list.print()}\n\n`);
+
+// Test edge case: removing from an empty list
+console.log(`Testing remove on an empty list...`);
+list.remove(0); // Should output that the list is empty
+console.log(`\n\n`);
