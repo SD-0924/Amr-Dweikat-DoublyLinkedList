@@ -80,7 +80,7 @@ class DoublyLinkedList {
         }]`
       );
     } else {
-      const pointer = this.head;
+      let pointer = this.head;
       let counter = 0;
       while (counter != index) {
         pointer = pointer.next;
@@ -100,7 +100,7 @@ class DoublyLinkedList {
         }]`
       );
     } else {
-      const pointer = this.head;
+      let pointer = this.head;
       let counter = 0;
       while (counter != index) {
         pointer = pointer.next;
@@ -132,8 +132,8 @@ class DoublyLinkedList {
       this.push(val);
     } else {
       const node = new Node(val);
-      const p1 = this.head;
-      const p2 = this.head.next;
+      let p1 = this.head;
+      let p2 = this.head.next;
       let counter = 0;
       while (counter != index - 1) {
         p1 = p2;
@@ -165,8 +165,8 @@ class DoublyLinkedList {
       } else if (index === this.length - 1) {
         this.pop();
       } else {
-        const p1 = this.head;
-        const p2 = this.head.next;
+        let p1 = this.head;
+        let p2 = this.head.next;
         let counter = 0;
         while (counter != index - 1) {
           p1 = p2;
@@ -183,16 +183,16 @@ class DoublyLinkedList {
   // The print method to display linked list
   print() {
     let list = "";
-    const pointer = this.head;
+    let pointer = this.head;
     while (pointer) {
       if (pointer.next) {
-        list += pointer.data + "<->";
+        list += pointer.data + " <-> ";
       } else {
         list += pointer.data;
       }
       pointer = pointer.next;
     }
-    console.log(list);
+    return list;
   }
 }
 // Export the DoublyLinkedList class

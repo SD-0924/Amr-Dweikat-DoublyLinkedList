@@ -2,8 +2,8 @@
 import DoublyLinkedList from "./DoublyLinkedList.js";
 
 // Create an instance of the doubly linked list
-const list = new DoublyLinkedList();
-console.log(`List after creating it:  ${list.print()}\n\n`);
+const list = new DoublyLinkedList(); // List:
+console.log(`\n\nList after creating it:  ${list.print()}\n\n`);
 
 // Test the push method
 console.log(`Testing push...`);
@@ -45,3 +45,5 @@ console.log(`List after inserting 15 at index 1:  ${list.print()}\n\n`);
 console.log(`Testing remove...`);
 list.remove(1); // List: 10 <-> 25
 console.log(`List after removing element at index 1:  ${list.print()}\n\n`);
+
+// remove there is a bug in it
